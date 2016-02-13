@@ -1,7 +1,5 @@
 # SynchroCivics - Synchro Civics sample app
 
----
-
 This app is intended to be installed into a [Synchro Server](https://synchro.io) environment using the [Synchro Command Line Interface](https://www.npmjs.com/package/synchro) tool.  
 
 Synchro Civics uses the [Google Civic Information API](https://developers.google.com/civic-information/) to power a Synchro mobile app that shows the representatives at every level of government based on street address.
@@ -19,11 +17,11 @@ Alternatively, you may use Git to install this app and keep it up to date.  To d
 $ synchro new synchro-civics
 ```
 
-Now you may clone this repo in the newly created `synchro-apps\synchro-civics` directory.
+Now you may clone this repo into the newly created `synchro-apps\synchro-civics` directory.
 
 ## Configuring Synchro Civics
 
-Before running Synchro Server with this app, you must provide the app configuration setting `GOOGLE_CIVICS_KEY`.  This value must represent a [Google API key](https://support.google.com/cloud/answer/6158862) that has been [enable for use with the Civic API](https://developers.google.com/civic-information/docs/using_api).
+Before running Synchro Server with this app, you must provide the app configuration setting `GOOGLE_CIVICS_KEY`.  This value must represent a [Google API key](https://support.google.com/cloud/answer/6158862) that has been [enabled for use with the Civic API](https://developers.google.com/civic-information/docs/using_api).
 
 The easiest way to set this value is to add it to the Synchro Server `config.json` file after installing the Synchro Civics app into your local configuration (as described in the previous section):
 
