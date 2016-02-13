@@ -1,0 +1,13 @@
+{
+  "name": "synchro-civics",
+  "version": "1.3.1",
+  "description": "Synchro Civics",
+  "main": "civics_main",
+  "author": "Bob Dickinson <bob@synchro.io> (http://synchro.io/)",
+  "private": true,
+  "repository": "SynchroLabs/SynchroCivics",
+  "engines": { "synchro": ">= 1.3.0" },
+  "synchro": { "clientVersion": ">=1.2" },
+  "synchroArchiveUrl": "https://github.com/SynchroLabs/SynchroCivics/archive/master.zip",
+  "hooks": [ "lib/stylehook" ]
+}
