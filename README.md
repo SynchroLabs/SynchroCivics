@@ -11,13 +11,11 @@ To install in your Synchro Server environment using the Synchro CLI:
 $ synchro install https://github.com/SynchroLabs/SynchroCivics/archive/master.zip
 ```
 
-Alternatively, you may use Git to install this app and keep it up to date.  To do that, first create and install a new, empty synchro-civics app in your Synchro Server environment using the Synchro CLI:
+Alternatively, you may use Git to install this app and keep it up to date.  To do that, you will want to clone SynchroCivics (this repo) into the `synchro-apps` directory in your Synchro installation, then install Synchro Civics into your configuration using the Synchro CLI:
 
 ```
-$ synchro new synchro-civics
+$ synchro add SynchroCivics synchro-civics
 ```
-
-Now you may clone this repo into the newly created `synchro-apps\synchro-civics` directory.
 
 ## Configuring Synchro Civics
 
