@@ -20,7 +20,7 @@ exports.View =
                 ]},
             ]},
 
-            { control: "stackpanel", margin: { top: 10, right: 20 }, height: "*", visibility: "{previousAddresses}", contents: [
+            { control: "stackpanel", margin: { top: 10, right: 20 }, height: "*", width: "*", visibility: "{previousAddresses}", contents: [
                 { control: "text", value: "Recent addresses", fontsize: 12 },
                 { control: "listview", select: "None", height: "*", width: "*", margin: { bottom: 0 }, binding: { items: "previousAddresses", onItemClick: { command: "previousAddress", address: "{$data}" } }, itemTemplate:
                     { control: "stackpanel", orientation: "Horizontal", padding: 5, contents: [

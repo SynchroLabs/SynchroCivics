@@ -62,7 +62,7 @@ function * findAndLoadRepresentatives(context, session, viewModel)
         }
         
         // Updated recent addresses list (remove existing references, trim list, insert)        
-        session.previousAddresses.remove(viewModel.address);
+        lodash.pull(session.previousAddresses, viewModel.address);
         session.previousAddresses = session.previousAddresses.splice(0, 3);
         session.previousAddresses.unshift(viewModel.address);
 
