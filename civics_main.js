@@ -23,9 +23,9 @@ exports.View =
             { control: "stackpanel", margin: { top: 10, right: 20 }, height: "*", width: "*", visibility: "{previousAddresses}", contents: [
                 { control: "text", value: "Recent addresses", fontsize: 12 },
                 { control: "listview", select: "None", height: "*", width: "*", margin: { bottom: 0 }, binding: { items: "previousAddresses", onItemClick: { command: "previousAddress", address: "{$data}" } }, itemTemplate:
-                    { control: "stackpanel", orientation: "Horizontal", padding: 5, contents: [
-                        { control: "text", value: "{$data}", fontsize: 10 },
-                    ]},
+                    { control: "stackpanel", orientation: "Horizontal", width: "*", padding: 0, contents: [
+                        { control: "text", width: "*", ellipsize: true, value: "{$data}", fontsize: 10 },
+                    ]}
                 },
             ]},
 
@@ -65,7 +65,10 @@ exports.Commands =
                 "latlng": viewModel.position.coordinate.latitude + "," + viewModel.position.coordinate.longitude,
                 "result_type": "street_address"
             }
-            var response = yield Synchro.waitForAwaitable(context, googleApi.callApiAsync, context, "https://maps.googleapis.com/maps/api/geocode/json", params);
+            var response = yield Synchro.yieldAwaitable(context, function(callback)
+            {
+                googleApi.callApiAsync(context, "https://maps.googleapis.com/maps/api/geocode/json", params, callback);
+            });
             if (response && response.results && (response.results.length > 0))
             {
                 viewModel.address = response.results[0].formatted_address;
