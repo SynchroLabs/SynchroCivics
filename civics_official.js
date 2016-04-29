@@ -14,7 +14,7 @@ exports.View =
                 { control: "image", resource: "{rep.photoUrl}", visibility: "{rep.photoUrl}", horizontalAlignment: "Left", margin: { top: 10, bottom: 10 }, width: 300 },
 
                 { control: "stackpanel", orientation: "Vertical", margin: 0, width: "*", contents: [
-                    { control: "stackpanel", orientation: "Horizontal", margin: 0, width: "*", visibility: "{rep.phone}", contents: [
+                    { filter: { deviceMetric: "os", isnot: "Web" }, control: "stackpanel", orientation: "Horizontal", margin: 0, width: "*", visibility: "{rep.phone}", contents: [
                         { control: "button", caption: "Call", verticalAlignment: "Center", binding: "onTel" },
                         { control: "text", value: "{rep.phone}", verticalAlignment: "Center", width: "*", fontsize: 8 },
                     ]},
