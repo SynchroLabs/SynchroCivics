@@ -2,6 +2,9 @@
 //
 var lodash = require("lodash");
 
+var star = Synchro.getResourceUrl("star.png");
+var starEmpty = Synchro.getResourceUrl("star-empty.png");
+
 exports.View =
 {
     title: "Official",
@@ -11,7 +14,10 @@ exports.View =
             control: "stackpanel", width: "*", contents: [
                 { control: "text", value: "{rep.office}", width: "*", font: { bold: true, size: 14 } },
                 { control: "text", value: "{rep.name} {rep.partyLetter}", width: "*", ellipsize: true, fontsize: 12 },
-                { control: "image", resource: "{rep.photoUrl}", visibility: "{rep.photoUrl}", horizontalAlignment: "Left", margin: { top: 10, bottom: 10 }, width: 300 },
+                { control: "stackpanel", orientation: "Horizontal", margin: 0, width: "*", contents: [
+                    { control: "image", resource: "{rep.photoUrl}", visibility: "{rep.photoUrl}", horizontalAlignment: "Left", margin: { top: 10, bottom: 10 }, width: 300 },
+                    { filter: { deviceMetric: "os", is: "Web" }, control: "imagetoggle", checkedresource: star, uncheckedresource: starEmpty, alt: "Favorite", margin: { top: 10 }, binding: { value: "fav", onToggle: "favToggled" } },
+                ]},
 
                 { control: "stackpanel", orientation: "Vertical", margin: 0, width: "*", contents: [
                     { filter: { deviceMetric: "os", isnot: "Web" }, control: "stackpanel", orientation: "Horizontal", margin: 0, width: "*", visibility: "{rep.phone}", contents: [
@@ -34,7 +40,7 @@ exports.View =
                         { control: "button", caption: "Web", verticalAlignment: "Center", binding: "onWeb" },
                         { control: "text", value: "{rep.url}", verticalAlignment: "Center", width: "*", fontsize: 8 },
                     ]}
-                ]},      
+                ]},
 
                 { filter: { deviceMetric: "os", is: ["Windows", "WinPhone"] }, control: "commandBar.toggle", text: "Favorite", icon: "Favorite", binding: { value: "fav", onToggle: "favToggled" } },
                 { filter: { deviceMetric: "os", is: "Android" }, control: "actionBar.toggle", checkedicon: "ic_action_important", uncheckedicon: "ic_action_not_important", showAsAction: "IfRoom", binding: { value: "fav", onToggle: "favToggled" } },

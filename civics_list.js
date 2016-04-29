@@ -13,12 +13,16 @@ exports.View =
         {
             control: "stackpanel", orientation: "Vertical", width: "*", height: "*", contents: [
 
-                {
-                    control: "stackpanel", orientation: "Horizontal", width: "*", contents: [
+                { select: "First", contents: [
+                    { filter: { deviceMetric: "os", is: "Web" }, control: "stackpanel", orientation: "Vertical", width: "*", contents: [
+                        { control: "progressring", width: 300, value: "{isLoading}", verticalAlignment: "Center", visibility: "{isLoading}" },
+                        { control: "text", value: "{message}", width: "*", fontsize: 12, verticalAlignment: "Center", visibility: "{message}" },
+                    ] },
+                    { control: "stackpanel", orientation: "Horizontal", width: "*", contents: [
                         { control: "progressring", value: "{isLoading}", height: 40, width: 40, verticalAlignment: "Center", visibility: "{isLoading}" },
                         { control: "text", value: "{message}", width: "*", fontsize: 12, verticalAlignment: "Center", visibility: "{message}" },
-                    ]
-                },
+                    ] },
+                ] },
 
                 {
                     control: "stackpanel", width: "*", height: "*", visibility: "{representatives}", contents: [    
