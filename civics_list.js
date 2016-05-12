@@ -5,6 +5,8 @@ var crypto = require('crypto');
 
 var googleApi = require('./google_api');
 
+var userImg = Synchro.getResourceUrl("user.png");
+
 exports.View =
 {
     title: "Representation",
@@ -92,7 +94,12 @@ function * findAndLoadRepresentatives(context, session, viewModel)
                 {
                     normalizedOfficial.partyLetter = "(" + official.party[0] + ")";
                 }
-                              
+                
+                if (!normalizedOfficial.photoUrl)
+                {
+                    normalizedOfficial.photoUrl = userImg;
+                }
+
                 // Grab the first phone, email, url (if any)
                 //
                 if (official.phones && (official.phones.length > 0))
