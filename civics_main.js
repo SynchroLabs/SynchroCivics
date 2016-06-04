@@ -15,9 +15,9 @@ exports.View =
             { control: "stackpanel", orientation: "Vertical", margin: { top: 10, right: 20 }, width: "*", contents: [
                 { control: "edit", binding: "address", placeholder: "street address", width: "*" },
                 { control: "wrappanel", orientation: "Horizontal", margin: 0, width: "*", contents: [
-                    { control: "button", caption: "Find Reps", verticalAlignment: "Center", binding: "placenameSearch", enabled: "{address}" },
-                    { filter: { deviceMetric: "os", is: "Web" }, control: "button", caption: "View Favorites", binding: "favs" },
-                    { control: "button", caption: "Use My Location", verticalAlignment: "Center", binding: "locationSearch", visibility: "{position.available}", enabled: "{position.coordinate}" },
+                    { control: "button", caption: "Find Reps", icon: "search", verticalAlignment: "Center", binding: "placenameSearch", enabled: "{address}" },
+                    { filter: { deviceMetric: "os", is: "Web" }, control: "button", caption: "Favorites", icon: "star", binding: "favs" },
+                    { control: "button", caption: "Location", icon: "my_location", verticalAlignment: "Center", binding: "locationSearch", visibility: "{position.available}", enabled: "{position.coordinate}" },
                 ]},
             ]},
 

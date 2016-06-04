@@ -2,9 +2,6 @@
 //
 var lodash = require("lodash");
 
-var star = Synchro.getResourceUrl("star.png");
-var starEmpty = Synchro.getResourceUrl("star-empty.png");
-
 exports.View =
 {
     title: "Official",
@@ -16,7 +13,7 @@ exports.View =
                 { control: "text", value: "{rep.name} {rep.partyLetter}", width: "*", ellipsize: true, fontsize: 12 },
                 { control: "stackpanel", orientation: "Horizontal", margin: 0, width: "*", contents: [
                     { control: "image", resource: "{rep.photoUrl}", visibility: "{rep.photoUrl}", horizontalAlignment: "Left", margin: { top: 10, bottom: 10 }, width: 300 },
-                    { filter: { deviceMetric: "os", is: "Web" }, control: "imagetoggle", checkedresource: star, uncheckedresource: starEmpty, alt: "Favorite", margin: { top: 10 }, binding: { value: "fav", onToggle: "favToggled" } },
+                    { filter: { deviceMetric: "os", is: "Web" }, control: "togglebutton", caption: "Favorite", checkedicon: "star", uncheckedicon: "star_border", checkedcolor: "Blue", uncheckedcolor: "Gray", alt: "Favorite", margin: { top: 10 }, binding: { value: "fav", onToggle: "favToggled" } },
                 ]},
 
                 { control: "stackpanel", orientation: "Vertical", margin: 0, width: "*", contents: [
